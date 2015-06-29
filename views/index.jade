@@ -1,0 +1,66 @@
+extends layout
+
+block body
+  div(ng-controller='AppCtrl').container
+    .header.clearfix
+      nav
+        ul.nav.nav-pills.pull-right
+          li(role='presentation').active
+
+    h3.text-muted Algorithmic Trading In The Browser
+
+    .panel.panel-default
+      #price-chart.panel-body
+
+    #tradersList.row
+      .col-lg-6(ng-repeat="trader in traders")
+        .trader.panel.panel-default(data-id="{{trader.id}}")
+          .panel-heading.clearfix
+            .clearfix
+              h3.panel-title.pull-left {{trader.title}}
+              button.btn.pull-right(
+                data-target="[data-id='{{trader.id}}'] .trader-options",
+                data-toggle="collapse",
+                data-parent=".trader"
+              ) Options
+          .trader-body.panel-body
+            p {{trader.getLastTrade()}}
+            p {{trader.lastProfit}}
+          .panel-footer
+            p GBP Balance: {{trader.balance.toFixed(2)}}
+            p USD Balance: {{trader.amount}}
+
+    ul.menu
+      li
+        a(href='view1') view1
+      li
+        a(href='view2') view2
+
+    div(ng-view)
+
+    div
+      | Angular Socket.io seed app: v
+      span(app-version)
+
+  script(src='/socket.io/socket.io.js')
+  script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular-route/angular-route.js')
+  script(src='bower_components/angular-socket-io/socket.js')
+  script(src='bower_components/highcharts-ng/dist/highcharts-ng.js')
+  script(src='bower_components/jquery/dist/jquery.js')
+  script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+  script(src='bower_components/highstock/js/highstock.src.js')
+
+  script(src='js/class.js')
+  script(src='js/traders/trader.js')
+  script(src='js/traders/moving-average-trader.js')
+  script(src='js/traders/random-trader.js')
+  script(src='js/traders/rsi-trader.js')
+  script(src='js/traders/sma-trader.js')
+  script(src='js/algorithms/sma.js')
+
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
