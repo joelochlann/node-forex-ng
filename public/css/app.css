@@ -151,3 +151,13 @@ body {
     border-bottom: 0;
   }
 }
+
+.trader .name {
+  font-weight: bold;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.trader .value {
+
+}

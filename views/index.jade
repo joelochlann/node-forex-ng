@@ -24,11 +24,19 @@ block body
                 data-parent=".trader"
               ) Options
           .trader-body.panel-body
-            p {{trader.getLastTrade()}}
-            p {{trader.lastProfit}}
+            p
+              span.name Last Trade
+              span.value {{trader.getLastTrade()}}
+            p 
+              span.name Last Profit
+              span.value {{trader.lastProfit}}
           .panel-footer
-            p GBP Balance: {{trader.balance.toFixed(2)}}
-            p USD Balance: {{trader.amount}}
+            p 
+              span.name GBP Balance
+              span.value {{trader.balance.toFixed(2)}}
+            p
+              span.name USD Balance
+              span.value {{trader.amount}}
 
     ul.menu
       li
