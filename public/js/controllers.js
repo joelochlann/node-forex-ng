@@ -13,6 +13,9 @@ angular.module('myApp.controllers', []).
 
     socket.on('tick', function (tick) {
       console.log(tick);
+      $scope.traders.forEach(function(trader) {
+        trader.trade(tick);
+      });
     });
   }).
   controller('MyCtrl1', function ($scope, socket) {
