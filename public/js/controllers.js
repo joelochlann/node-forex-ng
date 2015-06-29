@@ -16,6 +16,7 @@ angular.module('myApp.controllers', []).
       $scope.traders.forEach(function(trader) {
         trader.trade(tick);
       });
+      $scope.lastPrice = tick.close;
     });
   }).
   controller('MyCtrl1', function ($scope, socket) {
