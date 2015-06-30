@@ -38,17 +38,8 @@ block body
               span.name USD Balance
               span.value {{trader.amount}}
 
-    ul.menu
-      li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
+    footer.footer Built with AngularJS
 
-    div(ng-view)
-
-    div
-      | Angular Socket.io seed app: v
-      span(app-version)
 
   script(src='/socket.io/socket.io.js')
   script(src='bower_components/angular/angular.js')
