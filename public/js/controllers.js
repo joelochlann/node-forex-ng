@@ -11,12 +11,55 @@ angular.module('myApp.controllers', []).
       new RSITrader("RSITrader", 50000, 14)
     ];
 
+    $scope.chartConfig = {
+      options: {
+        rangeSelector: {
+            buttons: [{
+                count: 1,
+                type: 'minute',
+                text: '1M'
+            }, {
+                count: 5,
+                type: 'minute',
+                text: '5M'
+            }, {
+                type: 'all',
+                text: 'All'
+            }],
+            inputEnabled: false,
+            selected: 0
+        }
+      },
+
+      series: [{
+        name: 'GBP to USD',
+        tooltip: {
+          valueDecimals: 2
+        },
+        data: []
+      }],
+        
+      title: {
+          text: 'GBP to USD Exchange Rate'
+      },
+
+      useHighStocks: true
+    };
+
     socket.on('tick', function (tick) {
       console.log(tick);
       $scope.traders.forEach(function(trader) {
         trader.trade(tick);
       });
-      $scope.lastPrice = tick.close;
+
+      var price = tick.close;
+      $scope.chartConfig.series[0].data.push([tick.timestamp, price]);
+
+      if ($scope.lastPrice) {
+        var up = ((price - $scope.lastPrice) > 0);
+        $scope.upOrDown = up ? 'up' : 'down';
+      }
+      $scope.lastPrice = price;
     });
   }).
   controller('MyCtrl1', function ($scope, socket) {

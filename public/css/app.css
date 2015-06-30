@@ -43,10 +43,10 @@
   font-size: 24px;
   color: white;
 }
-.tick-widget.green {
+.tick-widget.up {
   background-color: green;
 }
-.tick-widget.red {
+.tick-widget.down {
   background-color: red;
 }
 .trader .trader-balance::before {

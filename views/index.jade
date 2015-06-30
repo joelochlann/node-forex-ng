@@ -6,11 +6,11 @@ block body
       nav
         ul.nav.nav-pills.pull-right
           li(role='presentation').active
-            .tick-widget Last price: {{lastPrice}}
+            .tick-widget.label(class='{{upOrDown}}') Last price: {{lastPrice}}
       h3.text-muted Algorithmic Trading In The Browser
 
     .panel.panel-default
-      #price-chart.panel-body
+      highchart#price-chart.panel-body(config="chartConfig")
 
     #tradersList.row
       .col-lg-6(ng-repeat="trader in traders")
@@ -57,7 +57,7 @@ block body
   script(src='bower_components/highcharts-ng/dist/highcharts-ng.js')
   script(src='bower_components/jquery/dist/jquery.js')
   script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-  script(src='bower_components/highstock/js/highstock.src.js')
+  script(src='http://code.highcharts.com/stock/highstock.js')
 
   script(src='js/class.js')
   script(src='js/traders/trader.js')
