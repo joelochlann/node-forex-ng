@@ -6,7 +6,7 @@ block body
       nav
         ul.nav.nav-pills.pull-right
           li(role='presentation').active
-            .tick-widget.label(class='{{upOrDown}}') Last price: {{lastPrice}}
+            .tick-widget.label(class='{{upOrDown}}') Last price: {{lastPrice.toFixed(2)}}
       h3.text-muted Algorithmic Trading In The Browser
 
     .panel.panel-default
