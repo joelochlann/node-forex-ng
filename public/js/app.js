@@ -33,29 +33,29 @@ config(function ($routeProvider, $locationProvider) {
   // and undesirable behaviour versus using .addPoint().
   $('#price-chart').highcharts('StockChart', {
     rangeSelector: {
-        buttons: [{
-            count: 1,
-            type: 'minute',
-            text: '1M'
-        }, {
-            count: 5,
-            type: 'minute',
-            text: '5M'
-        }, {
-            type: 'all',
-            text: 'All'
-        }],
-        inputEnabled: false,
-        selected: 0
+      buttons: [{
+        count: 1,
+        type: 'minute',
+        text: '1M'
+      }, {
+        count: 5,
+        type: 'minute',
+        text: '5M'
+      }, {
+        type: 'all',
+        text: 'All'
+      }],
+      inputEnabled: false,
+      selected: 0
     },
     title: {
-        text: 'GBP to USD Exchange Rate'
+      text: 'GBP to USD Exchange Rate'
     },
     series: [{
-        name: 'GBP to USD',
-        tooltip: {
-            valueDecimals: 2
-        }
+      name: 'GBP to USD',
+      tooltip: {
+        valueDecimals: 2
+      }
     }]
   });
 
